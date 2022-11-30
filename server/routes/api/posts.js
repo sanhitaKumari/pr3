@@ -25,12 +25,14 @@ router.delete('/:id', async (req, res) => {
     res.status(200).send();
 });
 
+//Important!!!! Everytime cluster starts REWRITE CLUSTER LINK
 async function loadPostsCollection() {
     const client = await mongodb.MongoClient.connect
-    ('mongodb+srv://BrandAd:brandadmogodb@cluster0.rn6vcal.mongodb.net/?retryWrites=true&w=majority', {
+    ('mongodb+srv://BrandAd:brandadmogodb@cluster0.rn6vcal.mongodb.net/test', {
         useNewUrlParser: true
     });
 
     return client.db('BrandAd').collection('posts');
 }
 module.exports = router;
+// 'mongodb+srv://BrandAd:brandadmogodb@cluster0.rn6vcal.mongodb.net/?retryWrites=true&w=majority'
